@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../static/style.css">
+    <!-- <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}"> -->
+    <title>Simple Music Player</title>
+</head>
+<body>
+    <div class="music-player">
+        <h2 class="playing"><span class="song-name"></span></h2>
+        <img src="../static/tile/image.png" alt="Image not available" class="tile">
+        <!-- <input type="range" min="0" max="100" value="50" class="slider" id="mySlider"> -->
+
+        <div class="slider">
+            <div><span id="songTime">0:00</span></div>
+            <div class="slider-container">
+                <input type="range" min="0" max="100" value="0" class="slider" id="songSlider">
+                <div id="progressBar"></div>
+            </div>
+        </div>
+        
+        
+        <div class="controls">
+            <button class="btn shuffle"><i class="ph-bold ph-shuffle"></i></button>
+            <button class="btn previous "><i class="ph-bold ph-skip-back"></i></button>
+            <button class="btn play-pause">
+                <i id="play-pause-icon" class="ph-bold ph-play"></i>
+            </button>
+            <button class="btn next"><i class="ph-bold ph-skip-forward"></i></button>
+            <button class="btn mute">
+                <i id="mute-icon" class="ph-bold ph-speaker-high"></i>
+            </button>
+        </div>
+        
+        <div>
+            <!-- <h2>Next 3 songs</h2> -->
+        </div>
+    
+    </div>
+
+    <script src="../static/main.js"></script>
+</body>
+</html>
