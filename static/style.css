@@ -38,13 +38,7 @@ body {
 }
 
 .play-pause{
-    /* height: 10px; */
     font-size: 3.5rem;
-    /* border-radius: 100%; */
-    /* background-color: aqua; */
-    /* padding: 10px; */
-    /* margin: 10px; */
-    /* border-style: solid; */
 }
 
 .controls{
@@ -66,9 +60,8 @@ h2{
 }
 
 .slider-container {
-    width: 80%;
-    /* margin: 20px auto; */
-    position: relative;
+    width: 90%;
+    align-self: center;
 }
 
 .slider {
@@ -78,8 +71,30 @@ h2{
 #progressBar {
     height: 5px;
     width: 0;
-    /* background: black; */
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+}
+
+#progress{
+    -webkit-appearance: none;
+    width: 90%;
+    height: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+#progress::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background: rgb(94, 94, 224);
+    width: 30px;
+    height: 30px;
+    border: 50% rgb(196, 196, 246) solid;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: rgb(196, 196, 246);
+    border-width: 5px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.22);
 }

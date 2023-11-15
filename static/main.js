@@ -118,9 +118,9 @@ let currentSong = songs[cur].ele;
 songName.textContent = songs[cur].audioName;
 
 for(const song of songs){
-    // updateProgressBar();
     song.ele.addEventListener('ended', ()=>{
         updateSong('next');
+        progress.max = currentSong.duration;
         updateList();
     })
 }
@@ -149,6 +149,7 @@ playBtn.addEventListener('click',()=>{
 
 const updateSong = (action)=>{
     currentSong.pause();
+    playPauseIcon.className = "ph-bold ph-pause"
     currentSong.currentTime=0;
     if(action === 'next'){
         cur++;
@@ -185,28 +186,18 @@ function shuffleArray(array) {
 }
 
 shufBtn.addEventListener('click', ()=>{
-    // arr = [1,2,3,4,5];
     songs = shuffleArray(songs);
-    console.log(songs)
 })
 
-const slider = document.getElementById("songSlider");
-const progressBar = document.getElementById("progressBar");
-const songTime = document.getElementById("songTime");
+let progress = document.getElementById("progress");
 
-slider.addEventListener("input", function() {
-    updateProgressBar();
-});
+if(currentSong.play()){
+    setInterval(()=>{
+        progress.value=currentSong.currentTime;
+        progress.max = currentSong.duration;
+    },500);
+}
 
-function updateProgressBar() {
-    const progress = (slider.value / slider.max) * 100;
-    progressBar.style.width = `${progress}%`;
-    currentSong.currentTime = progress;
-
-    const durationInSeconds = Math.floor((slider.value / slider.max) * currentSong.duration);
-
-    const minutes = Math.floor(durationInSeconds / 60);
-    const seconds = durationInSeconds % 60;
-    const formattedTime = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-    songTime.textContent = formattedTime;
+progress.onchange = function(){
+    currentSong.currentTime = progress.value;
 }

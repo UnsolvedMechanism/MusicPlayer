@@ -15,16 +15,8 @@
     <div class="music-player">
         <h2 class="playing"><span class="song-name"></span></h2>
         <img src="../static/tile/image.png" alt="Image not available" class="tile">
-        <!-- <input type="range" min="0" max="100" value="50" class="slider" id="mySlider"> -->
-
-        <div class="slider">
-            <div><span id="songTime">0:00</span></div>
-            <div class="slider-container">
-                <input type="range" min="0" max="100" value="0" class="slider" id="songSlider">
-                <div id="progressBar"></div>
-            </div>
-        </div>
         
+        <input type="range" value = "0" id="progress">
         
         <div class="controls">
             <button class="btn shuffle"><i class="ph-bold ph-shuffle"></i></button>
@@ -36,10 +28,6 @@
             <button class="btn mute">
                 <i id="mute-icon" class="ph-bold ph-speaker-high"></i>
             </button>
-        </div>
-        
-        <div>
-            <!-- <h2>Next 3 songs</h2> -->
         </div>
     
     </div>
